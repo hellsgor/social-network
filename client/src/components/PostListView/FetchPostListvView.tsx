@@ -18,7 +18,11 @@ export const FetchPostListView = () => {
 
   switch (postListQuery.status) {
     case 'pending':
-      return <Loader />;
+      return (
+        <div style={{ display: 'flex', justifyContent: 'center', padding: '1.5rem 0' }}>
+          <Loader />
+        </div>
+      );
 
     case 'success':
       return <PostListView postList={postListQuery.data.list} />;
@@ -27,9 +31,17 @@ export const FetchPostListView = () => {
       console.error(postListQuery.error);
 
       return (
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            columnGap: '1rem',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '1rem 0',
+          }}
+        >
           <span>Произошла ошибка:</span>
-          <button onClick={refetch}>Повторить запрос</button>
+          <Button onClick={() => postListQuery.refetch()} type="button" title="Повторить запрос" size="small" />
         </div>
       );
   }
