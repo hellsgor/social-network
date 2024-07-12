@@ -1,9 +1,14 @@
 import { FC } from 'react';
 
-import { PostView } from '../PostView';
 import './PostListView.css';
+import { PostList } from '../../api/Post';
+import { PostView } from '../PostView';
 
-export const PostListView = ({ postList }) => {
+export interface PostListViewProps {
+  postList: PostList;
+}
+
+export const PostListView: FC<PostListViewProps> = ({ postList }) => {
   return (
     <ul className="post-list">
       {postList.map((post) => (
