@@ -1,8 +1,14 @@
-export interface Post {
-  id: string;
-  text: string;
-  authorId: string;
-  createdAt: number;
-}
+import { z } from 'zod';
 
-export type PostList = Post[];
+export const PostSchema = z.object({
+  id: z.string(),
+  text: z.string(),
+  authorId: z.string(),
+  createdAt: z.number(),
+});
+
+export const PostListSchema = z.array(PostSchema);
+
+export type Post = z.infer<typeof PostSchema>;
+
+export type PostList = z.infer<typeof PostListSchema>;
