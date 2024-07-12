@@ -19,7 +19,7 @@ export type FetchPostListResponse = z.infer<typeof FetchPostListSchema>;
 
 export function fetchPostList(): Promise<FetchPostListResponse> {
   return fetch('/api/posts')
-    .then((response) => response.json)
+    .then((response) => response.json())
     .then((data) => FetchPostListSchema.parse(data));
 }
 
