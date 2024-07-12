@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { z } from 'zod';
 
 export const PostSchema = z.object({
@@ -23,54 +22,54 @@ export function fetchPostList(): Promise<FetchPostListResponse> {
     .then((data) => FetchPostListSchema.parse(data));
 }
 
-interface IdleRequestState {
-  status: 'idle';
-}
+// interface IdleRequestState {
+//   status: 'idle';
+// }
 
-interface LoadingRequestState {
-  status: 'pending';
-}
+// interface LoadingRequestState {
+//   status: 'pending';
+// }
 
-interface SuccessRequestState {
-  status: 'success';
-  data: PostList;
-}
+// interface SuccessRequestState {
+//   status: 'success';
+//   data: PostList;
+// }
 
-interface ErrorRequestState {
-  status: 'error';
-  error: unknown;
-}
+// interface ErrorRequestState {
+//   status: 'error';
+//   error: unknown;
+// }
 
-type RequestState = IdleRequestState | LoadingRequestState | SuccessRequestState | ErrorRequestState;
+// type RequestState = IdleRequestState | LoadingRequestState | SuccessRequestState | ErrorRequestState;
 
-export function usePostList() {
-  const [state, setState] = useState<RequestState>({ status: 'idle' });
+// export function usePostList() {
+//   const [state, setState] = useState<RequestState>({ status: 'idle' });
 
-  useEffect(() => {
-    if (state.status === 'pending') {
-      fetchPostList()
-        .then((data) => {
-          setState({ status: 'success', data: data.list });
-        })
-        .catch((error) => {
-          setState({
-            status: 'error',
-            error: error,
-          });
-        });
-    }
-  }, [state]);
+//   useEffect(() => {
+//     if (state.status === 'pending') {
+//       fetchPostList()
+//         .then((data) => {
+//           setState({ status: 'success', data: data.list });
+//         })
+//         .catch((error) => {
+//           setState({
+//             status: 'error',
+//             error: error,
+//           });
+//         });
+//     }
+//   }, [state]);
 
-  useEffect(() => {
-    setState({ status: 'pending' });
-  }, []);
+//   useEffect(() => {
+//     setState({ status: 'pending' });
+//   }, []);
 
-  const refetch = () => {
-    setState({ status: 'pending' });
-  };
+//   const refetch = () => {
+//     setState({ status: 'pending' });
+//   };
 
-  return {
-    state,
-    refetch,
-  };
-}
+//   return {
+//     state,
+//     refetch,
+//   };
+// }
