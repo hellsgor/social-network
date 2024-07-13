@@ -15,21 +15,11 @@ export const LoginForm: FC = () => {
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <FormField label="Имя пользователя">
-        <input
-          type="text"
-          name="username"
-          onChange={(event) => setUsername(event.target.value)}
-          value={username}
-        />
+        <input type="text" name="username" onChange={(event) => setUsername(event.target.value)} value={username} />
       </FormField>
 
       <FormField label="Пароль">
-        <input
-          type="password"
-          name="password"
-          onChange={(event) => setPassword(event.target.value)}
-          value={password}
-        />
+        <input type="password" name="password" onChange={(event) => setPassword(event.target.value)} value={password} />
       </FormField>
 
       <Button type="submit" title="Войти" />
