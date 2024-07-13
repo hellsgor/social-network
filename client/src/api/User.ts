@@ -33,3 +33,10 @@ export function login(username: string, password: string): Promise<void> {
     .then(validateResponse)
     .then(() => undefined);
 }
+
+export function fetchMe(): Promise<User> {
+  return fetch('/api/users/me')
+    .then(validateResponse)
+    .then((response) => response.json())
+    .then((data) => UserSchema.parse(data));
+}
