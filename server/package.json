@@ -15,12 +15,14 @@
     "typescript": "^5.0.2"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "@types/node": "^20.10.6",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "lowdb": "^7.0.1",
+    "react-hook-form": "^7.52.1",
     "zod": "^3.22.4"
   }
 }
