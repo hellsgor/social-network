@@ -20,6 +20,8 @@ export const LoginForm: FC = () => {
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
+
+    loginMutation.mutate();
   };
 
   return (
