@@ -17,7 +17,7 @@ export function registerUser(
   username: string,
   password: string,
 ): Promise<void> {
-  return fetch('api/register', {
+  return fetch('/api/register', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password }),
