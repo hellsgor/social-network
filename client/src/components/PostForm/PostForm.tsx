@@ -15,6 +15,9 @@ export const PostForm: FC<IPostFormProps> = () => {
   const createPostMutation = useMutation(
     {
       mutationFn: () => createPost(text),
+      onSuccess() {
+        queryClient.invalidateQueries({ queryKey: ['posts'] });
+      },
     },
     queryClient,
   );
